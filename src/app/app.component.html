@@ -1,0 +1,54 @@
+<div class="table">
+  <div id="divOptions" class="tr">
+    <div class="td">
+      <button
+        id="btnCreateData"
+        (click)="btnCreateData($event)"
+        type="button"
+        class="btn btn-primary"
+      >
+        Crear Datos
+      </button>
+      <button
+        id="btnGetData"
+        (click)="btnGetData($event)"
+        type="button"
+        class="btn btn-primary"
+      >
+        Obtener Datos
+      </button>
+      <button
+        id="btnGameInit"
+        (click)="btnGameInit($event)"
+        type="button"
+        class="btn btn-primary"
+      >
+        Comenzar Juego
+      </button>
+      <button
+        id="btnGameReset"
+        (click)="btnGameReset($event)"
+        type="button"
+        class="btn btn-primary"
+      >
+        Reiniciar Juego
+      </button>
+    </div>
+  </div>
+  <div id="divGameOptions" class="tr">
+    <div class="td">
+      <div id="showWords"></div>
+    </div>
+  </div>
+  <div id="divGame" class="tr">
+    <div class="td">
+      <div class="table">
+        <div class="tr">
+          <div class="td">
+            <app-tablerodejuego-game></app-tablerodejuego-game>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let player of players">
+    <app-jugador-game
+      [id]="player.PlayerId"
+      [name]="player.PlayerName"
+    ></app-jugador-game>
+  </li>
+</ul>

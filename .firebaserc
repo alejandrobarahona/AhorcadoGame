@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "ahorcadogame-61f40"
+  },
+  "targets": {
+    "ahorcadogame-61f40": {
+      "hosting": {
+        "AhorcadoGame": [
+          "ahorcadogame-61f40"
+        ]
+      }
+    }
+  }
+}

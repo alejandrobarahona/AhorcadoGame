@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <td>
+      <table>
+        <tr
+          class="d-flex justify-content-center"
+          *ngFor="let alp of infGame.AlphabetInfo"
+        >
+          <td *ngFor="let letra of alp.data">
+            <app-letra-game
+              [letter]="letra.nameLetter"
+              [state]="letra.stateLetter"
+              [class]="letra.classButton"
+            ></app-letra-game>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
