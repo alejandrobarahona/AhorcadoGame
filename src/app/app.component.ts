@@ -98,6 +98,7 @@ export class AppComponent implements OnInit {
     this.infFirebase.Categories.forEach((catDoc) => {
       do {
         elemtCat.remove(elemtCat.length - 1);
+        first = true;
       } while (elemtCat.length > 0);
 
       catDoc.forEach((cat) => {
