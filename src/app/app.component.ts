@@ -40,14 +40,6 @@ export class AppComponent implements OnInit {
   }
 
   btnGetData(event: Event) {
-    // this.socketService.getInitialData().then((resultado) => {
-    //   this.initialDataToGame = JSON.parse(resultado);
-    //   this.showOptionsToGame();
-    //   this.initialDataToGame.categories.forEach((elt) => {
-    //     console.log(elt);
-    //   });
-    // });
-
     this.showOptionsToGame();
   }
 
@@ -104,6 +96,10 @@ export class AppComponent implements OnInit {
     let first = true;
 
     this.infFirebase.Categories.forEach((catDoc) => {
+      do {
+        elemtCat.remove(elemtCat.length - 1);
+      } while (elemtCat.length > 0);
+
       catDoc.forEach((cat) => {
         let option = document.createElement('option');
         if (first) {

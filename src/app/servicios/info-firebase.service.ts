@@ -8,8 +8,13 @@ import { Observable } from 'rxjs';
 export class InfoFirebaseService {
   Categories: Observable<any[]>;
   Words: Observable<any[]>;
+  Players: Observable<any[]>;
+  // Tables: Observable<any[]>;
+
   constructor(firestore: AngularFirestore) {
     this.Categories = firestore.collection('Categories').valueChanges();
     this.Words = firestore.collection('WordsToFind').valueChanges();
+    this.Players = firestore.collection('Players').valueChanges();
+    // this.Tables = firestore.collection('Tables').valueChanges();
   }
 }
