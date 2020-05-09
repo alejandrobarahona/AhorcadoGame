@@ -1,8 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+.container {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+}
+
 .table td {
   padding: 3px;
 }
 
 .palabras {
   height: 39px;
+}
+
+.pnlSup {
+  margin: 2px;
+}
+
+.letraAplph {
+  width: 35px;
+  margin: 2px;
+}
+
+.btnLetter {
+  width: 37px;
 }

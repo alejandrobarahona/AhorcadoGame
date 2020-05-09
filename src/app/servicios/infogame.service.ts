@@ -12,6 +12,10 @@ export class InfogameService {
   LetterNoWord;
   letterNW: string;
   countLetterTotal: number;
+  rachaGanadora: number;
+  finishGame = false;
+  lostGame = false;
+  winGame = false;
   categoryName: string;
   private subObject = new BehaviorSubject<Array<ShowLetters>>(this.WordFind);
   public obsObject$ = this.subObject.asObservable();
@@ -24,11 +28,15 @@ export class InfogameService {
   private subObjWords = new BehaviorSubject<Array<PaintWords>>(this.WordShow);
   public obsObjWords$ = this.subObjWords.asObservable();
 
+  private subFinishGame = new BehaviorSubject<Boolean>(this.finishGame);
+  public obsFinishGame$ = this.subFinishGame.asObservable();
+
   @Input() word: string;
   userinfo = new InfoUser();
 
   constructor() {
     this.LetterNoWord = new Array<ShowLetters>();
+    this.rachaGanadora = 0;
   }
 
   createInfoUser() {
@@ -248,7 +256,7 @@ export class InfogameService {
     this.subObjectAlphabet.next(this.AlphabetInfo);
   }
 
-  createUpdateWordObj() {
+  createUpdateWordObj(resetGallow: boolean) {
     if (this.word !== '' && this.word !== undefined) {
       // console.log(this.word);
 
@@ -256,7 +264,9 @@ export class InfogameService {
       let WordShow_ = new Array<PaintWords>();
       this.WordShow = new Array<PaintWords>();
       this.WordFind = new Array<ShowLetters>();
-      this.LetterNoWord = new Array<ShowLetters>();
+      if(resetGallow){
+        this.LetterNoWord = new Array<ShowLetters>();
+      }
       let createWord = new ShowLetters();
       this.countLetter();
       let pal = 0;
@@ -321,6 +331,15 @@ export class InfogameService {
   }
 
   validateLetter(letterToValidate: string) {
+    if (this.finishGame) {
+      if (this.winGame) {
+        alert('Da click en Siguiente para superar tu racha');
+      } else if (this.lostGame) {
+        alert('Debes iniciar un nuevo juego');
+      }
+      this.subFinishGame.next(this.finishGame);
+      return;
+    }
     let noExist = false;
     if (this.word.indexOf(letterToValidate) >= 0) {
       this.WordFind.forEach((element) => {
@@ -357,6 +376,11 @@ export class InfogameService {
     lettNoWrd.letterNoShow = this.letterNW;
     this.LetterNoWord.push(lettNoWrd);
     this.subObject.next(this.LetterNoWord);
+    if (this.LetterNoWord.length >= 6) {
+      this.lostGame = true;
+      this.finishGame = true;
+      this.subFinishGame.next(false);
+    }
   }
 
   validateGame() {
@@ -367,7 +391,11 @@ export class InfogameService {
       }
     });
     if (finish) {
-      alert(`GANASTE!!! ${this.word}`);
+      // alert(`GANASTE!!! ${this.word}`);
+      this.winGame = true;
+      this.finishGame = true;
+      this.subFinishGame.next(true);
+      this.rachaGanadora++;
     }
   }
 
@@ -377,8 +405,6 @@ export class InfogameService {
    */
   getInfoGame(objToParse) {
     try {
-      // console.log(objToParse);
-
       objToParse = JSON.parse(objToParse);
       let newObject = '{';
       let initialDataKEYS = Object.keys(objToParse);

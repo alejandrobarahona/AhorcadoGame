@@ -25,7 +25,9 @@ export class AhorcadoGameComponent implements OnInit {
     this.subObject = this.infGame.obsObject$.subscribe(() => {
       this.onComplete.emit();
       this.getNextImage();
-      if (this.infGame.LetterNoWord.length == 6) {
+      if (this.infGame.LetterNoWord.length >= 6 && this.infGame.finishGame) {
+        this.infGame.lostGame = true;
+        this.infGame.rachaGanadora = 0;
         alert(`Perdiste era: ${this.infGame.word}`);
       }
     });

@@ -1,7 +1,7 @@
 <div>
   <button
     *ngIf="setStateLetter(); else elseBlock"
-    class="btn btn-info"
+    class="btnLetter btn btn-info"
     id="{{ letter }}"
     name="{{ letter }}"
     (click)="eventLetter($event)"
@@ -11,7 +11,7 @@
 
   <ng-template #elseBlock>
     <button
-      class="{{ class }}"
+      class="btnLetter {{ class }}"
       id="{{ letter }}"
       name="{{ letter }}"
       (click)="eventLetter($event)"
