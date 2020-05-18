@@ -12,9 +12,14 @@ export class InfoFirebaseService {
   // Tables: Observable<any[]>;
 
   constructor(firestore: AngularFirestore) {
-    this.Categories = firestore.collection('Categories').valueChanges();
-    this.Words = firestore.collection('WordsToFind').valueChanges();
-    this.Players = firestore.collection('Players').valueChanges();
-    // this.Tables = firestore.collection('Tables').valueChanges();
+    try {
+      console.log(`Firestore: ${firestore}`);
+      this.Categories = firestore.collection('Categories').valueChanges();
+      this.Words = firestore.collection('WordsToFind').valueChanges();
+      this.Players = firestore.collection('Players').valueChanges();
+      // this.Tables = firestore.collection('Tables').valueChanges();
+    } catch (error) {
+      console.log(`Error: ${error}`);
+    }
   }
 }

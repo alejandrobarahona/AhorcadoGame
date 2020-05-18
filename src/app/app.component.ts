@@ -55,7 +55,7 @@ export class AppComponent implements OnInit, OnDestroy {
     // this.btnGData.hidden = true;
 
     this.btnGData = document.getElementById('btnGetData') as HTMLButtonElement;
-
+    // this.btnGData.hidden = true;
     this.subFinishGame = this.infGame.obsFinishGame$.subscribe(() => {
       this.onComplete.emit();
       if (this.infGame.finishGame && this.infGame.winGame) {
@@ -64,6 +64,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.btnReset.disabled = false;
       }
     });
+    this.showOptionsToGame();
   }
 
   ngOnDestroy() {
@@ -74,9 +75,7 @@ export class AppComponent implements OnInit, OnDestroy {
     // this.socketService.createInitialData({});
   }
 
-  btnGetData(event: Event) {
-    this.showOptionsToGame();
-  }
+  btnGetData(event: Event) {}
 
   showOptionsToGame() {
     this.btnGData.hidden = true;

@@ -22,6 +22,7 @@ import { LetrajuegoGameComponent } from '../app/game/letrajuego-game/letrajuego-
 import { AhorcadoimageGameComponent } from '../app/game/ahorcadoimage-game/ahorcadoimage-game.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TablerodejuegoGameComponent } from '../app/game/tablerodejuego-game/tablerodejuego-game.component';
+import { LoginRedesSocialesComponent } from '../app/login/login-redes-sociales/login-redes-sociales.component';
 import { FacebookComponent } from './initComponents/facebook/facebook.component';
 
 @NgModule({
@@ -39,6 +40,7 @@ import { FacebookComponent } from './initComponents/facebook/facebook.component'
     LetrajuegoGameComponent,
     AhorcadoimageGameComponent,
     TablerodejuegoGameComponent,
+    LoginRedesSocialesComponent,
     FacebookComponent,
   ],
   imports: [
