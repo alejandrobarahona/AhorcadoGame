@@ -1,0 +1,53 @@
+<div class="pantallaFija">
+    <table class="table">
+        <thead>
+            <th>
+                <h2>
+                    AHORCADO
+                    <img src="../../../assets/picaso_GIF.gif" alt="Image" width="30px" height="40px" />
+                </h2>
+            </th>
+        </thead>
+        <tbody>
+            <th>
+                <div>
+                    <div id="divOptions" class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button id="btnCreateData" (click)="btnCreateData($event)" type="button" class="btn btn-primary pnlSup">
+                    Crear Datos
+                  </button>
+                                    <button id="btnGetData" (click)="btnGetData($event)" type="button" class="btn btn-primary pnlSup">
+                    Obtener Datos
+                  </button>
+                                    <button id="btnGameInit" (click)="btnGameInit($event)" type="button" class="btn btn-primary pnlSup">
+                    Comenzar Juego
+                  </button>
+                                    <button id="btnNextWord" (click)="btnNextWord($event)" type="button" class="btn btn-primary pnlSup">
+                    Siguiente
+                  </button>
+                                    <button id="btnGameReset" (click)="btnGameReset($event)" type="button" class="btn btn-primary pnlSup">
+                    Reiniciar Juego
+                  </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="divGameOptions" class="row">
+                        <div class="col-md-12">
+                            <div id="showWords"></div>
+                        </div>
+                    </div>
+                    <div id="divGame" class="tr">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <app-tablerodejuego-game></app-tablerodejuego-game>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </th>
+        </tbody>
+    </table>
+</div>

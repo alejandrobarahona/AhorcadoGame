@@ -13,7 +13,7 @@ export class InfoFirebaseService {
 
   constructor(firestore: AngularFirestore) {
     try {
-      console.log(`Firestore: ${firestore}`);
+      // console.log(`Firestore: ${firestore}`);
       this.Categories = firestore.collection('Categories').valueChanges();
       this.Words = firestore.collection('WordsToFind').valueChanges();
       this.Players = firestore.collection('Players').valueChanges();

@@ -1,33 +1,13 @@
+<!-- <table>
+    <tr>
+        <td> -->
 <table>
-  <tr>
-    <td>
-      <table>
-        <tr
-          class="d-flex justify-content-center"
-          *ngFor="let alp of infGame.AlphabetInfo"
-        >
-          <td class="letraAplph" *ngFor="let letra of alp.data">
-            <app-letra-game
-              [letter]="letra.nameLetter"
-              [state]="letra.stateLetter"
-              [class]="letra.classButton"
-            ></app-letra-game>
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
+    <tr class="d-flex justify-content-center" *ngFor="let alp of infGame.AlphabetInfo">
+        <td class="letraAplph" *ngFor="let letra of alp.data">
+            <app-letra-game [letter]="letra.nameLetter" [state]="letra.stateLetter" [class]="letra.classButton"></app-letra-game>
+        </td>
+    </tr>
 </table>
-
-<!-- <div
-  class="row d-flex justify-content-center"
-  *ngFor="let alp of infGame.AlphabetInfo"
->
-  <div class="letraAplph col-sm-1 col-md-1" *ngFor="let letra of alp.data">
-    <app-letra-game
-      [letter]="letra.nameLetter"
-      [state]="letra.stateLetter"
-      [class]="letra.classButton"
-    ></app-letra-game>
-  </div>
-</div> -->
+<!-- </td>
+    </tr>
+</table> -->

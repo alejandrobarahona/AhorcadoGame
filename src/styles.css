@@ -1,27 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
-.container {
-  padding-left: 0;
-  padding-right: 0;
-  width: 100%;
+
+.containerTable {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
 }
 
-.table td {
-  padding: 3px;
-}
-
-.palabras {
-  height: 39px;
+.tamTable {
+    width: 90%;
 }
 
 .pnlSup {
-  margin: 2px;
+    margin: 2px;
 }
 
-.letraAplph {
-  width: 35px;
-  margin: 2px;
+.pantallaFija {
+    width: 70%;
+    height: 80%;
 }
 
-.btnLetter {
-  width: 37px;
+.tamLetter {
+    width: 1.9em;
+    margin: -0.6em;
+    padding-top: 6px;
+    padding-left: 8px;
+}
+
+.palabras {
+    height: 1em;
+    width: 1em;
 }

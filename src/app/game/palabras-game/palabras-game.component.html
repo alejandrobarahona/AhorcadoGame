@@ -1,16 +1,13 @@
 <div class="row d-flex justify-content-around">
-  <div class="col-md-4">Categoria: {{ infGame.categoryName }}</div>
-  <div class="col-md-4">Total de Letras: {{ infGame.countLetterTotal }}</div>
-  <div class="col-md-4">Racha Ganadora: {{ infGame.rachaGanadora }}</div>
+    <div class="col-md-4">Categoria: {{ infGame.categoryName }}</div>
+    <div class="col-md-4">Total de Letras: {{ infGame.countLetterTotal }}</div>
+    <div class="col-md-4">Racha Ganadora: {{ infGame.rachaGanadora }}</div>
 </div>
 
 <table>
-  <tr *ngFor="let word of infGame.WordShow">
-    <td class="palabras" *ngFor="let w of word.data">
-      <app-letrajuego-game
-        [letter]="w.letter"
-        [style]="w.style"
-      ></app-letrajuego-game>
-    </td>
-  </tr>
+    <tr *ngFor="let word of infGame.WordShow">
+        <td *ngFor="let w of word.data">
+            <app-letrajuego-game [letter]="w.letter" [style]="w.style"></app-letrajuego-game>
+        </td>
+    </tr>
 </table>

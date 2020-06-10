@@ -9,7 +9,7 @@ export class InfogameService {
   AlphabetInfo = new Array<Alphabet>();
   WordFind = new Array<ShowLetters>();
   WordShow = new Array<PaintWords>();
-  LetterNoWord;
+  LetterNoWord: Array<ShowLetters>;
   letterNW: string;
   countLetterTotal: number;
   rachaGanadora: number;
@@ -28,7 +28,7 @@ export class InfogameService {
   private subObjWords = new BehaviorSubject<Array<PaintWords>>(this.WordShow);
   public obsObjWords$ = this.subObjWords.asObservable();
 
-  private subFinishGame = new BehaviorSubject<Boolean>(this.finishGame);
+  private subFinishGame = new BehaviorSubject<boolean>(this.finishGame);
   public obsFinishGame$ = this.subFinishGame.asObservable();
 
   @Input() word: string;
@@ -40,12 +40,12 @@ export class InfogameService {
   }
 
   createInfoUser() {
-    let today = new Date();
+    const today = new Date();
     let todayString, day, month;
 
-    let dd = today.getDate();
-    let mm = today.getMonth() + 1;
-    let yyyy = today.getFullYear();
+    const dd = today.getDate();
+    const mm = today.getMonth() + 1;
+    const yyyy = today.getFullYear();
 
     if (dd < 10) {
       day = `0${dd}`;
@@ -72,11 +72,11 @@ export class InfogameService {
   createArrayAlphabet() {
     this.AlphabetInfo = new Array<Alphabet>();
     // Primera linea de letras
-    var alph = new Alphabet();
+    let alph = new Alphabet();
     alph.idRow = 0;
     alph.data = new Array<Letter>();
 
-    var lett = new Letter();
+    let lett = new Letter();
     lett.nameLetter = 'Q';
     lett.stateLetter = 'enabled';
     lett.classButton = 'btn btn-info';
@@ -260,11 +260,11 @@ export class InfogameService {
     if (this.word !== '' && this.word !== undefined) {
       // console.log(this.word);
 
-      let palabras = this.word.split(' ');
-      let WordShow_ = new Array<PaintWords>();
+      // let palabras = this.word.split(' ');
+      const WORDSHOW_ = new Array<PaintWords>();
       this.WordShow = new Array<PaintWords>();
       this.WordFind = new Array<ShowLetters>();
-      if(resetGallow){
+      if (resetGallow) {
         this.LetterNoWord = new Array<ShowLetters>();
       }
       let createWord = new ShowLetters();
@@ -275,14 +275,14 @@ export class InfogameService {
       showW.data = new Array<ShowLetters>();
       for (let index = 0; index < this.word.length; index++) {
         const element = this.word.charAt(index);
-        if (element == ' ') {
+        if (element === ' ') {
           createWord = new ShowLetters();
           createWord.letter = '/';
           createWord.letterNoShow = '/';
           createWord.style = 'btn btn-dark text-dark';
           this.WordFind.push(createWord);
           showW.data.push(createWord);
-          WordShow_.push(showW);
+          WORDSHOW_.push(showW);
           showW = new PaintWords();
           pal++;
           showW.id = pal;
@@ -297,17 +297,16 @@ export class InfogameService {
         }
       }
 
-      WordShow_.push(showW);
-      let idWS = 0;
+      WORDSHOW_.push(showW);
+      const idWS = 0;
       let objPaint = new PaintWords();
       objPaint.id = idWS;
       objPaint.data = new Array<ShowLetters>();
 
-      for (let idx = 0; idx < WordShow_.length; idx++) {
-        let element = WordShow_[idx].data;
-        let tam = element.length;
+      for (let idx = 0; idx < WORDSHOW_.length; idx++) {
+        const element = WORDSHOW_[idx].data;
 
-        if (tam + objPaint.data.length <= 13) {
+        if (element.length + objPaint.data.length <= 13) {
           objPaint.data = objPaint.data.concat(element);
         } else {
           this.WordShow.push(objPaint);
@@ -326,7 +325,7 @@ export class InfogameService {
   }
 
   countLetter() {
-    let countWord = this.word.replace(/ /g, '');
+    const countWord = this.word.replace(/ /g, '');
     this.countLetterTotal = countWord.length;
   }
 
@@ -343,7 +342,7 @@ export class InfogameService {
     let noExist = false;
     if (this.word.indexOf(letterToValidate) >= 0) {
       this.WordFind.forEach((element) => {
-        if (element.letterNoShow == letterToValidate) {
+        if (element.letterNoShow === letterToValidate) {
           element.letter = letterToValidate;
           element.style = 'btn btn-success';
         }
@@ -371,7 +370,7 @@ export class InfogameService {
    * Metodo que indica si una letra no está en la palabra a buscar
    */
   letterNoWord() {
-    let lettNoWrd = new ShowLetters();
+    const lettNoWrd = new ShowLetters();
     lettNoWrd.letter = this.letterNW;
     lettNoWrd.letterNoShow = this.letterNW;
     this.LetterNoWord.push(lettNoWrd);
@@ -407,22 +406,22 @@ export class InfogameService {
     try {
       objToParse = JSON.parse(objToParse);
       let newObject = '{';
-      let initialDataKEYS = Object.keys(objToParse);
+      const initialDataKEYS = Object.keys(objToParse);
       for (let index = 0; index < initialDataKEYS.length; index++) {
         try {
-          let tableName = initialDataKEYS[index];
+          const tableName = initialDataKEYS[index];
           newObject += `"${tableName}":[`;
-          let tablesIds = Object.keys(objToParse[tableName]);
+          const tablesIds = Object.keys(objToParse[tableName]);
           for (let tIdx = 0; tIdx < tablesIds.length; tIdx++) {
             try {
-              let idReg = tablesIds[tIdx];
+              const idReg = tablesIds[tIdx];
               newObject += `{"id":"${idReg}",`;
-              let fieldName = Object.keys(objToParse[tableName][idReg]);
+              const fieldName = Object.keys(objToParse[tableName][idReg]);
               for (let fielInd = 0; fielInd < fieldName.length; fielInd++) {
                 try {
-                  let element = fieldName[fielInd];
+                  const element = fieldName[fielInd];
                   newObject += `"${element}":"${objToParse[tableName][idReg][element]}"`;
-                  if (fielInd == fieldName.length - 1) {
+                  if (fielInd === fieldName.length - 1) {
                   } else {
                     newObject += `,`;
                   }
@@ -432,7 +431,7 @@ export class InfogameService {
                 }
               }
               newObject += `}`;
-              if (tIdx == tablesIds.length - 1) {
+              if (tIdx === tablesIds.length - 1) {
               } else {
                 newObject += `,`;
               }
@@ -442,7 +441,7 @@ export class InfogameService {
             }
           }
           newObject += `]`;
-          if (index == initialDataKEYS.length - 1) {
+          if (index === initialDataKEYS.length - 1) {
           } else {
             newObject += `,`;
           }
