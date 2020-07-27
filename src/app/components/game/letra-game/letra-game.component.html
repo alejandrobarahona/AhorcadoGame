@@ -1,0 +1,11 @@
+<div>
+    <button *ngIf="setStateLetter(); else elseBlock" class="tamLetter btnLetter btn btn-info" id="{{ letter }}" name="{{ letter }}" (click)="eventLetter($event)">
+    {{ letter }}
+  </button>
+
+    <ng-template #elseBlock>
+        <button class="tamLetter btnLetter {{ class }}" id="{{ letter }}" name="{{ letter }}" (click)="eventLetter($event)" disabled>
+      {{ letter }}
+    </button>
+    </ng-template>
+</div>

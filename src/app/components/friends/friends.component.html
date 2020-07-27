@@ -1,0 +1,36 @@
+<div class="divSup">
+    <div class="table">
+        <div class="row">
+            <div class="col">
+                <div id="nextMessage" class="alert alert-warning message" role="alert" *ngIf="friendsList && friendsList.length === 0">
+                    El API de facebook no retornó amigos
+                </div>
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-info" (click)="deleteInfoUser()">
+          Darse de baja
+        </button>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table" *ngIf="friendsList">
+    <thead>
+        <th>Foto</th>
+        <th>Nombre</th>
+        <th>Puntaje Máximo</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let f of friendsList">
+            <td>
+                <img src="{{ f.PhotoUrl }}" class="img-thumb img-circle" alt="{{ f.FirstName }}" />
+            </td>
+            <td>
+                <label>{{ f.FirstName }}</label>
+            </td>
+            <td>
+                <label>{{ f.MaxScore }}</label>
+            </td>
+        </tr>
+    </tbody>
+</table>

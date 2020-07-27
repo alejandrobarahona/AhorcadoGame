@@ -1,0 +1,28 @@
+<table *ngIf="infGame.userInfo.Id" class="table">
+    <thead>
+        <tr>
+            <th>Foto</th>
+            <th>Nombre</th>
+            <th>Correo Electrónico</th>
+            <th>Máximo Puntaje</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <img [src]="infGame.userInfo.PhotoUrl" [alt]="infGame.userInfo.FirstName" />
+            </td>
+            <td>{{ infGame.userInfo.Name }}</td>
+            <td>{{ infGame.userInfo.Email }}</td>
+            <td>{{ infGame.userInfo.MaxScore }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<table *ngIf="!infGame.userInfo.Id">
+    <tr>
+        <td>
+            Inicia sesión para ver tu progreso
+        </td>
+    </tr>
+</table>

@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+.img-thumb {
+    width: 50px;
+    height: 50px;
+}
+
+.img-circle {
+    border-radius: 100%;
+}
+
+.pnlSup {
+    margin-right: 5px;
+}
+
+.divSup {
+    margin-top: 5px;
+}
+
+.gallow {
+    height: 20em;
+    width: 13em;
+}
+
+.tamGallow {
+    height: 20em;
+}
+
+.message {
+    width: 350px;
+    height: 40px;
+}
+
+.tamLetter {
+    width: 2.2em;
+    height: 1.7em;
+    font-size: 1em;
+    padding-left: 9px;
+    padding-top: 0;
+}
+
+.buttonSpace {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+
+p b:hover {
+    color: green;
+}

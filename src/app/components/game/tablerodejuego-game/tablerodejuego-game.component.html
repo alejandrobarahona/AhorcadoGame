@@ -1,0 +1,43 @@
+<div class="containerTable">
+    <button id="btnGameReset" (click)="btnGameReset($event)" type="button" class="btn btn-primary pnlSup">
+    <i class="fas fa-toilet-paper"></i>
+    Reiniciar Juego
+  </button>
+</div>
+<div class="containerTable">
+    <div class="row">
+        <div class="col-sm-12 col-md-12" style="width: 13em;">
+            <app-palabras-game></app-palabras-game>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-6" style="width: 13em;">
+            <app-ahorcado-game></app-ahorcado-game>
+        </div>
+        <div class="col-sm-6 col-md-6" style="width: 8em; margin-top: 1em;">
+            <table class="table table-borderless" style="width: 50%;">
+                <tr>
+                    <td>
+                        <button class="btn btn-outline-success" id="btnPista" (click)="getHelp()">
+              <i class="fas fa-question"></i>
+              Pista
+            </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btn btn-outline-success buttonSpace" id="btnAyuda" (click)="showOneLetter()">
+              <i class="far fa-eye"></i>
+              Ayuda
+            </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <app-letras-game></app-letras-game>
+        </div>
+    </div>
+</div>
